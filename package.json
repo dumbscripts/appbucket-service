@@ -1,0 +1,19 @@
+{
+  "name": "pdp-appbucket-service",
+  "version": "1.0.0",
+  "description": "appbucket service to manage all the software application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mahesh Hadimani",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "lodash": "^4.17.10",
+    "log4js": "^2.9.0",
+    "mongoose": "^5.1.5",
+    "morgan": "^1.9.0"
+  }
+}
