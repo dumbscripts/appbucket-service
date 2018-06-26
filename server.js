@@ -5,15 +5,16 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const {theHTTPLog, log4js, morgan} = require('./lib/logger/logger');
 const appRouter = require('./api/app');
+const config = require('./config/config');
 
 const app = express();
 const logger = log4js.getLogger('server');
 
-const PORT = 3000;
-const HOST_NAME = 'localhost';
-const DATABASE_NAME = 'AppBucket';
+const PORT = process.env.PORT;
+const DATABASE_NAME = process.env.DATABASE_NAME;
+const MONGODB_URI = process.env.MONGODB_URI;
 
-mongoose.connect(`mongodb://${HOST_NAME}/${DATABASE_NAME}`);
+mongoose.connect(`${MONGODB_URI}/${DATABASE_NAME}`);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

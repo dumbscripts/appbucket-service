@@ -3,6 +3,7 @@
 
 const MONGOOSE = require('mongoose');
 const SCHEMA = MONGOOSE.Schema;
+const _ = require("lodash");
 
 //schema definition
 var appBucketSchema = new SCHEMA({
@@ -15,6 +16,13 @@ var appBucketSchema = new SCHEMA({
 //validations
 appBucketSchema.path('application').required(true, 'application field cannot be empty or null');
 appBucketSchema.path('os').required(true, 'os field cannot be empty or null');
+
+//methods
+appBucketSchema.methods.toJSON = function () {
+  var obj = this.toObject();
+  console.log(obj);
+ return _.pick(obj, ["_id", "application", "os", "recipe", "dockerfile" ]);
+};
 
 //create model
 var AppBucket = MONGOOSE.model('AppBucket', appBucketSchema);

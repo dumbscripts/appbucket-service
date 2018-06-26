@@ -1,0 +1,20 @@
+
+{
+    "DATABASE_NAME" : "AppBucket",
+    "SECRET": "Xadhim83sda4dj!",
+
+    "ENV": 
+        {
+        "development" : {
+            "PORT": 3000,
+            "MONGODB_URI": "mongodb://localhost:27017"
+        },
+
+        "test" : {
+            "PORT": 3000,
+            "MONGODB_URI": "mongodb://localhost:27017"
+        }
+
+    }
+
+}
