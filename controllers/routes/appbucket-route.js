@@ -1,6 +1,5 @@
 'use strict';
 
-//const express = require('express');
 const { AppBucket } = require('../models/appbucket-schema');
 const mh = require('../../lib/mongoose/mongoose-helpers').MongooseHelpers;
 const middleware = require('./middleware');
@@ -80,7 +79,7 @@ function validateToken(req, res, callback) {
     let token = middleware.getTokenFromHeader(req);
     if (typeof token === 'undefined') {
         res.status(401).send({
-            message: 'missing authorization'
+            message: 'Missing authorization'
         })
     } else {
         try {
