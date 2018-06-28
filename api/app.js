@@ -2,10 +2,7 @@
 'use strict';
 
 const express = require('express');
-const {AppBucket} = require('../controllers/models/appbucket-schema');
-const mh = require('../lib/mongoose/mongoose-helpers').MongooseHelpers;
-const appbucketRouter = require('../controllers/routes/appbucket-route')
-
+const appbucketRouter = require('../controllers/routes/appbucket-route');
 
 var appRouter = express.Router();
 
@@ -20,5 +17,9 @@ appRouter.route('/update/:id')
 
 appRouter.route('/delete/:id')
 .delete(function(req, res) { appbucketRouter.deleteApp(req, res) });
+
+//adding login route for now - Needs re-work after user model
+appRouter.route('/login')
+.get(function(req, res) { appbucketRouter.login(req, res) } )
 
 module.exports = appRouter;
